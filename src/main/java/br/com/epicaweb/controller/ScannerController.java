@@ -26,8 +26,7 @@ public class ScannerController {
         documento = scannerDocumentoService.searchDocumento(scannerSearchRequest);
         return ResponseEntity.ok(documento);
     }
-
-
+    
     @PostMapping("/save")
     public ResponseEntity<?> saveDocument (
            @RequestParam String proposta , @RequestParam(required = false) Long codigo,
