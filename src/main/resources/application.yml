@@ -1,0 +1,13 @@
+app:
+  jwtExpirationInMs: '604800000'
+  jwtSecret: JWTSuperSecretKey
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+server:
+  port: '8080'
+  domain: 'CJC.LOCAL'
+  url: 'ldap://192.168.0.20/'
+  
