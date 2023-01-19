@@ -27,15 +27,6 @@ public class ScannerController {
         return ResponseEntity.ok(documento);
     }
 
-    @GetMapping("/{nome}")
-    public ResponseEntity<?> listCadastro(@PathVariable("nome")  String cliente){
-        List<ScannerDocumentoModel> documento = null;
-
-        if (cliente != null) {
-            documento = scannerDocumentoService.buscarPorCliente(cliente);
-            }
-        return ResponseEntity.ok(documento);
-    }
 
     @PostMapping("/save")
     public ResponseEntity<?> saveDocument (
