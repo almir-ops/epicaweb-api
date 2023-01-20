@@ -20,6 +20,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -38,7 +41,7 @@ public class EnvioEmailTeste {
 
     public static void main(String[] args) {
 
-        String vencimento = "12/10/2022";
+        String vencimento = "25/01/2023";
 /*
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate ld = LocalDate.parse(vencimento, formatter);
@@ -46,7 +49,18 @@ public class EnvioEmailTeste {
         Period period = Period.between(ld, dataHoraAtual);
         int dias = period.getDays();
 */
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate ldVencto = LocalDate.parse(vencimento, formatter);
+        LocalDate dataHoraAtual = LocalDate.now();
+        Period period = Period.between(dataHoraAtual, ldVencto);
 
+        int dias = period.getDays();
+
+        System.out.println("quantidade de dias  :   " + dias);
+
+
+
+/*
         String dest = "marcos@jardimdacolina.com.br";
 //      String destOcultos = "marcos@jardimdacolina.com.br,denilson@jardimdacolina.com.br,almir.junior@jardimdacolina.com.br";
         String destOcultos = "marcos@jardimdacolina.com.br";
@@ -54,7 +68,7 @@ public class EnvioEmailTeste {
         String conteudo = "Este texto se trata do corpo do email AGORA TEM QUE APARECER A IMAGEM<br>";
 
         sendMail(dest, destOcultos, assunto, conteudo);
-
+*/
     }
 
     public static void sendMail(String emailDestinatario, String destOcultos, String assunto, String conteudo) {

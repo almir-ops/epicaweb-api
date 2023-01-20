@@ -1,10 +1,7 @@
 package br.com.epicaweb.ws.request;
 
-
 import lombok.Getter;
-
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 public class NfeRequest {
@@ -13,7 +10,7 @@ public class NfeRequest {
     private Number cod_serv_atividade;
     private BigDecimal valor_nfe;
     private String descricao_servico;
-    private Number aliquota;
+    private BigDecimal aliquota;
 
     private Long codigo_cliente;
     private String nomeCliente;
@@ -28,6 +25,6 @@ public class NfeRequest {
     private String celular;
     private String complemento;
     private String cpf_cnpj;
-    private Number codigo_cidade;
+    private int codigo_cidade;
 
 }

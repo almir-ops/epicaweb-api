@@ -7,7 +7,7 @@ import br.com.epicaweb.domain.model.ServicoNfeModel;
 import br.com.epicaweb.ws.response.ServicoNfeResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-import br.com.epicaweb.domain.model.NfeEmitirModel;
+import br.com.epicaweb.domain.model.NfeListarModel;
 import br.com.epicaweb.ws.response.NfeEmitirResponse;
 import lombok.AllArgsConstructor;
 
@@ -17,11 +17,11 @@ public class NfeListarAssembler {
 		
 	private ModelMapper modelMapper;	
 	
-	public NfeEmitirResponse toModel(NfeEmitirModel nfe) {
+	public NfeEmitirResponse toModel(NfeListarModel nfe) {
 		return modelMapper.map(nfe, NfeEmitirResponse.class);
 	}
 	
-	public List<NfeEmitirResponse> toCollectionModel(List<NfeEmitirModel> nfe){		
+	public List<NfeEmitirResponse> toCollectionModel(List<NfeListarModel> nfe){
 		return nfe.stream()
 				.map(this::toModel)
 				.collect(Collectors.toList());				

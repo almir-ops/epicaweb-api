@@ -63,6 +63,8 @@ public class ScannerDocumentoService {
            return scannerDocumento;
     }
 
+
+
 //    public  List<ScannerArquivoModel>  upLoadFile(ScannerDocumentoModel scannerDocumentoModel, MultipartFile[] files, String scanner){
      public void upLoadFile(ScannerDocumentoModel scannerDocumentoModel, MultipartFile[] files, String scanner){
 

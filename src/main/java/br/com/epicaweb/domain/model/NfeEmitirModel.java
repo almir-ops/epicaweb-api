@@ -1,36 +1,30 @@
 package br.com.epicaweb.domain.model;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.math.BigDecimal;
 
-@Getter
 @Setter
+@Getter
 @Entity
+@Table(name="nfe")
 public class NfeEmitirModel {
+
     @Id
-    @Column(name="CODIGO")
-    private String codigo;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codigo;
+    private Number cod_serv_atividade;
+    private BigDecimal valor_nfe;
+    private String descricao_servico;
+    private Number aliquota;
 
-    @Column(name="CLIENTE")
-    private String cliente;
-
-    @Column(name="DATA_CREDI")
-    private String dataCredito;
-
-    @Column(name="PROPOSTA")
-    private String proposta;
-
-    @Column(name="VLR_PARC")
-    private String valorParcela;
-
-    @Column(name="NUM_PARC")
-    private String parcela;
-
-    @Column(name="D_VENCTO")
-    private String dataVEncto;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="codigo_cliente")
+    private ClienteModel clientes;
 
 }

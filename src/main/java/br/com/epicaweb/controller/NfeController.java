@@ -39,21 +39,14 @@ public class NfeController {
 		return retorno;
 	}
 
-/*
+	@PostMapping("/send")
+	public String putNfeEmitir(@RequestBody NfeRequest nfe) {
 
-	@PostMapping("/{codigo}")
-	public Boolean putNfeEmitir(@RequestBody NfeRequest nfe) {
-		if(codigo.length() >= 10)
-			resultado = true;
-		else
-			resultado = false;
-		
-		System.out.println("Resultado:" +  resultado);
-		
-		return resultado;
+		String ret = nfeService.sendNfeWs(nfe);
+		return ret;
 	}
 
-*/
+
 	@GetMapping("/servico")
 	public List<ServicoNfeResponse> getSevicoNfe(){
 		List<ServicoNfeResponse> retorno =  nfeListarAssembler.toCollectionModelServ(nfeService.getNfeServico());
@@ -61,5 +54,5 @@ public class NfeController {
 	}
 
 
-	
+
 }

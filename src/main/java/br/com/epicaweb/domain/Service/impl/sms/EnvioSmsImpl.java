@@ -61,13 +61,12 @@ public class EnvioSmsImpl implements EnvioSMSService {
     }
 
     public boolean geraLogEnvio(String proposta, String vencimento) {
-
         try {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate ldVencto = LocalDate.parse(vencimento, formatter);
             LocalDate dataHoraAtual = LocalDate.now();
-            Period period = Period.between(ldVencto, dataHoraAtual);
+            Period period = Period.between(dataHoraAtual, ldVencto);
 
             int dias = period.getDays();
 

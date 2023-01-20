@@ -18,12 +18,9 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/api/contrato")
 public class ContratoController {
 
-
-
 	private ContratoQueries contratoQueries;
 	private ContratoAssembler contratoAssembler;
 
-	@SuppressWarnings("unchecked")
 	@GetMapping("/{cpfCnpj}")
 	public List<ContratoResponse> buscaContrato(@PathVariable String cpfCnpj) {		
 		List<ContratoResponse> retorno = contratoAssembler.toCollectionModel(contratoQueries.getContratoByCpfCnpj(cpfCnpj));		
@@ -36,10 +33,6 @@ public class ContratoController {
 		List<String> retorno = contratoQueries.getByCpfCnpj(cpfCnpj);
 		return (ResponseEntity<String>) retorno;
 	}
-
-
-
-
 
 /*	
 	@SuppressWarnings("unchecked")
