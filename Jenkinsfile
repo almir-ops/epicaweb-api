@@ -7,7 +7,7 @@ pipeline {
         stage('Exemplo') {
             steps {
                 // Build steps here, for example:
-                sh 'mvn --version'
+                bat "mvn clean compile"
             }
         }
       
