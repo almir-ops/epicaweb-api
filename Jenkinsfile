@@ -8,13 +8,11 @@ pipeline {
         stage('Build') {
             steps {
               script {
-                    def currentBuild = currentBuild.rawBuild
-                    def previousBuilds = currentBuild.getPreviousBuild()
-                    if (previousBuilds.size() > 0) {
-                        for (def build in previousBuilds) {
-                            if (build.getResult() == null) {
-                                build.doStop()
-                            }
+                    def currentBuild = currentBuild.rawBuild 
+                    def previousBuild = currentBuild.getPreviousBuild()
+                    if (previousBuild != null) {
+                        if (previousBuild.getResult() == null) {
+                            previousBuild.doStop()
                         }
                     }
                 }
