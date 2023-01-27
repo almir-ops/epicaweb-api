@@ -7,7 +7,17 @@ pipeline {
        
         stage('Build') {
             steps {
-              
+              script {
+                    def currentBuild = currentBuild.rawBuild
+                    def previousBuilds = currentBuild.getPreviousBuilds()
+                    if (previousBuilds.size() > 0) {
+                        for (def build in previousBuilds) {
+                            if (build.getResult() == null) {
+                                build.doStop()
+                            }
+                        }
+                    }
+                }
                 // Build steps here, for example:
                 bat "mvn clean install"
             }
