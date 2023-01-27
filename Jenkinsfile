@@ -9,7 +9,7 @@ pipeline {
             steps {
               script {
                     def currentBuild = currentBuild.rawBuild
-                    def previousBuilds = currentBuild.getPreviousBuilds()
+                    def previousBuilds = currentBuild.getPreviousBuild()
                     if (previousBuilds.size() > 0) {
                         for (def build in previousBuilds) {
                             if (build.getResult() == null) {
