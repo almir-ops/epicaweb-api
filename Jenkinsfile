@@ -4,11 +4,7 @@ pipeline {
         maven 'Maven 3.8.7'
     }
     stages {
-        stage('Cancel current job'){
-             if (currentBuild.rawBuild.getCause(hudson.model.Cause.UpstreamCause) != null) {
-                        currentBuild.rawBuild.getCause(hudson.model.Cause.UpstreamCause).getUpstreamBuild().getExecutor().interrupt()
-             }
-        }
+       
         stage('Build Jar') {
             steps {
                 // Build steps here, for example:
