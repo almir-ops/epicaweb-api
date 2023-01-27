@@ -7,9 +7,7 @@ pipeline {
        
         stage('Build') {
             steps {
-                script {
-                    build job: 'Gerenciamento epicaweb-api', parameters: [], wait: false, propagate: false, abort: true                
-                }
+              
                 // Build steps here, for example:
                 bat "mvn clean install"
             }
