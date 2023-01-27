@@ -5,15 +5,17 @@ pipeline {
     }
     stages {
        
-        stage('Build Jar') {
+        stage('Build') {
             steps {
                 // Build steps here, for example:
                 bat "mvn clean install"
             }
         }
         stage('Execute Jar'){
-            bat "cd target"
-            bat "java -jar EpicaWeb-1.0.0-SNAPSHOT.jar"
+            steps{
+                 bat "cd target"
+                 bat "java -jar EpicaWeb-1.0.0-SNAPSHOT.jar"
+            }
         }
     }
 }
