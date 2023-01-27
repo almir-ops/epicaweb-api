@@ -1,10 +1,12 @@
 pipeline {
     agent any
+    tools {
+        maven '3.8.1'
+    }
     stages {
         stage('Build') {
             steps {
                 // Build steps here, for example:
-                sh 'apt-get install maven' 
                 sh 'mvn clean install'
             }
         }
