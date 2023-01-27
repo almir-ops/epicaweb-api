@@ -7,7 +7,9 @@ pipeline {
        
         stage('Build') {
             steps {
-               
+                script {
+                    currentBuild.getPreviousBuild().doStop()  // Interrompe o build anterior
+                }
                 // Build steps here, for example:
                 bat "mvn clean install"
             }
