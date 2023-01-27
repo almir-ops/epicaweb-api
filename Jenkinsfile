@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Execute Jar'){
             steps{
-                 bat "java -jar target\EpicaWeb-1.0.0-SNAPSHOT.jar"
+                 bat "java -jar target/EpicaWeb-1.0.0-SNAPSHOT.jar"
             }
         }
     }
