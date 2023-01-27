@@ -7,14 +7,7 @@ pipeline {
        
         stage('Build') {
             steps {
-                script {
-                    // Abort previous build if there is one
-                    currentBuild = currentBuild.rawBuild
-                    previousBuilds = currentBuild.getPreviousBuilds()
-                    if (previousBuilds.size() > 0) {
-                        previousBuilds[0].getExecutor().interrupt()
-                    }
-                }
+               
                 // Build steps here, for example:
                 bat "mvn clean install"
             }
