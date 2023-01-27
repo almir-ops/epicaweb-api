@@ -4,25 +4,12 @@ pipeline {
         maven 'Maven 3.8.7'
     }
     stages {
-        stage('Build') {
+        stage('Exemplo') {
             steps {
                 // Build steps here, for example:
-                sh 'mvn clean install'
+                sh 'mvn --version'
             }
         }
-        stage('Test') {
-            steps {
-                // Test steps here, for example:
-                sh 'mvn test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                // Change to the target directory
-                sh 'cd target'
-                // Start the new service
-                sh 'java -jar EpicaWeb-1.0.0-SNAPSHOT.jar'
-            }
-        }
+      
     }
 }
