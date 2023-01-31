@@ -145,7 +145,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration();
 		configuration.setAllowedOrigins(
-				Arrays.asList("https://localhost:4200", "http://localhost:4200", "http://localhost:8080", "*"));
+				Arrays.asList("http://localhost:4200", "https://epicawebapp-ui.azurewebsites.net,"));
 		configuration.setAllowedMethods(
 				Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"));
 		configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));

@@ -30,9 +30,11 @@ public class CorsConfiguration implements Filter , WebMvcConfigurer {
 	      HttpServletRequest request = (HttpServletRequest) req;
 	      System.out.println("WebConfig; "+request.getRequestURI());
 
-	      String origin = "*";
 
-	      response.setHeader("Access-Control-Allow-Origin", origin);
+	      response.setHeader("Access-Control-Allow-Origin",
+				  request.getHeader("Origin").equals("http://localhost:4200") ||
+				  request.getHeader("Origin").equals("https://epicawebapp-ui.azurewebsites.net")
+				  ? request.getHeader("Origin") : "");
 	      response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
 	      response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe");
 	      response.setHeader("Access-Control-Max-Age", "3600");
