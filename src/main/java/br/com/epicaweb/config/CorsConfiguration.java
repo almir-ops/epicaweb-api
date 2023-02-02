@@ -30,7 +30,6 @@ public class CorsConfiguration implements Filter , WebMvcConfigurer {
 	      HttpServletRequest request = (HttpServletRequest) req;
 	      System.out.println("WebConfig; "+request.getRequestURI());
 
-
 	      response.setHeader("Access-Control-Allow-Origin",
 				  request.getHeader("Origin").equals("http://localhost:4200") ||
 				  request.getHeader("Origin").equals("https://epicawebapp-ui.azurewebsites.net")
