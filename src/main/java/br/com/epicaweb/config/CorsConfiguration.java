@@ -20,7 +20,7 @@ public class CorsConfiguration implements Filter , WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOrigins("*")
+            .allowedOrigins("https://epicawebapp-ui.azurewebsites.net, http://localhost:4200")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }  
 	
@@ -30,7 +30,11 @@ public class CorsConfiguration implements Filter , WebMvcConfigurer {
 	      HttpServletRequest request = (HttpServletRequest) req;
 	      System.out.println("WebConfig; "+request.getRequestURI());
 
-	      response.setHeader("Access-Control-Allow-Origin", "*");
+
+	      response.setHeader("Access-Control-Allow-Origin",
+				  request.getHeader("Origin").equals("https://epicasys.jardimdacolina.com.br/") ||
+				  request.getHeader("Origin").equals("http://localhost:4200")
+				  ? request.getHeader("Origin") : "");
 	      response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE");
 	      response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe");
 	      response.setHeader("Access-Control-Max-Age", "3600");
@@ -47,7 +51,7 @@ public class CorsConfiguration implements Filter , WebMvcConfigurer {
 	          }
 	      } else {
 	          System.out.println("Pre-flight");
-	          response.setHeader("Access-Control-Allow-Origin", "*");
+	          response.setHeader("Access-Control-Allow-Origin", "https://epicawebapp-ui.azurewebsites.net; http://localhost:4200");
 	          response.setHeader("Access-Control-Allow-Methods", "POST,GET,DELETE,PUT,OPTIONS");
 	          response.setHeader("Access-Control-Max-Age", "3600");
 	          response.setHeader("Access-Control-Allow-Headers", "Access-Control-Expose-Headers"+"Authorization, content-type," +
