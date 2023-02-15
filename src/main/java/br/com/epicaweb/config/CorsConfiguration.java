@@ -20,7 +20,7 @@ public class CorsConfiguration implements Filter , WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOrigins("https://epicawebapp-ui.azurewebsites.net, http://localhost:4553")
+            .allowedOrigins("*")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }  
 	
